@@ -39,13 +39,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */
 
 [BASE] = LAYOUT_lightcycle(  // layer 0 : default
-        // left hand
-        KC_ESC,       KC_Q,      KC_W,     KC_E,     KC_R,    KC_T,                                               KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_EQL,
-        KC_TAB,       KC_A,      KC_S,     KC_D,     KC_F,    KC_G,                                               KC_H,  KC_J,  KC_K,  KC_L,  KC_SCLN,  KC_QUOT,
-        KC_LBRC,      KC_Z,      KC_X,     KC_C,     KC_V,    KC_B,                                               KC_N,  KC_M,  KC_COMM,  KC_DOT,  KC_SLSH,  KC_RBRC,
-        KC_LCTL,      KC_LALT,   KC_LALT,  KC_LEFT,  KC_RGHT,                                                            KC_UP,  KC_DOWN,  KC_MINS,  KC_BSLS,  KC_GRAVE,
-                                                                        KC_LCTL, KC_RGUI,     MO(SYMB), KC_DEL,
-                                                              KC_BSPC,  KC_LSFT, KC_LGUI,     KC_ENT,   MO(NUMB), KC_SPC 
+        // left hand                                                                        // right hand
+        KC_ESC,     KC_Q,      KC_W,     KC_E,     KC_R,    KC_T,                                               KC_Y,     KC_U,    KC_I,     KC_O,     KC_P,     KC_EQL,
+        KC_TAB,     KC_A,      KC_S,     KC_D,     KC_F,    KC_G,                                               KC_H,     KC_J,    KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+        KC_LBRC,    KC_Z,      KC_X,     KC_C,     KC_V,    KC_B,                                               KC_N,     KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_RBRC,
+        KC_LCTL,    KC_LALT,   KC_LALT,  KC_LEFT,  KC_RGHT,                                                               KC_UP,   KC_DOWN,  KC_MINS,  KC_BSLS,  KC_GRAVE,
+                                                                      KC_LCTL, KC_RGUI,     MO(SYMB), KC_DEL,
+                                                            KC_BSPC,  KC_LSFT, KC_LGUI,     KC_ENT,   MO(NUMB), KC_SPC
     ),
 
 /* Keymap 1: Number Layer
@@ -71,78 +71,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 // Numbers
 [NUMB] = LAYOUT_lightcycle(
-       // left hand
-          KC_TRNS,     KC_TRNS,   KC_F9,    KC_F10,    KC_F11,    KC_F12,
-          KC_TRNS,     KC_TRNS,   KC_F5,    KC_F6,     KC_F7,     KC_F8,
-          KC_TRNS,     KC_TRNS,   KC_F1,    KC_F2,     KC_F3,     KC_F4,
-          MO(ADMIN),   KC_TRNS,   KC_TRNS,  KC_WBAK,   KC_WFWD,
-                                                         KC_TRNS,  KC_TRNS,
-                                               KC_TRNS,  KC_TRNS,  KC_TRNS,
-       // right hand
-                                KC_CALC,        KC_7,    KC_8,    KC_9,    KC_MINS,   KC_TRNS,
-                                RCTL(KC_BSLS),  KC_4,    KC_5,    KC_6,    KC_PLUS,   KC_TRNS,
-                                KC_TRNS,        KC_1,    KC_2,    KC_3,    KC_ASTR,   KC_TRNS,
-                                                KC_0,    KC_0,    KC_DOT,  KC_SLSH,   KC_TRNS,
-                      KC_RALT,  KC_RCTL,
-                      KC_RGUI,  KC_RSFT,  KC_0
-),
+        // left hand                                                                             // right hand
+        KC_TRNS,     KC_TRNS,   KC_F9,    KC_F10,    KC_F11,    KC_F12,                                              KC_CALC,        KC_7,    KC_8,    KC_9,    KC_MINS,   KC_TRNS,
+        KC_TRNS,     KC_TRNS,   KC_F5,    KC_F6,     KC_F7,     KC_F8,                                               RCTL(KC_BSLS),  KC_4,    KC_5,    KC_6,    KC_PLUS,   KC_TRNS,
+        KC_TRNS,     KC_TRNS,   KC_F1,    KC_F2,     KC_F3,     KC_F4,                                               KC_TRNS,        KC_1,    KC_2,    KC_3,    KC_ASTR,   KC_TRNS,
+        MO(ADMIN),   KC_TRNS,   KC_TRNS,  KC_WBAK,   KC_WFWD,                                                                        KC_0,    KC_0,    KC_DOT,  KC_SLSH,   KC_TRNS,
+                                                                          KC_TRNS, KC_TRNS,      KC_RALT,  KC_RCTL,
+                                                                KC_TRNS,  KC_TRNS, KC_TRNS,      KC_RGUI,  KC_RSFT,  KC_TRNS
+    ),
 
-/* Keymap 2: Symbol Layer
+/* Keymap 2: Admin Layer
  *
  * ,-------------------------------------------.                    ,-----------------------------------------.
- * |      |   !  |  Up  |  #   |  $   | Alt+F4 |                    | Cut  |      |   !  |  @   |  #   |      |
+ * |      |      |      |      |      |        |                    |      |      |      |      |      | Reset|
  * |------+------+------+------+------+--------|                    |------+------+------+------+------+------|
- * |   \  | Left | Down |Right |  *   | Insert |                    | Copy |      |   &  |  ^   |  %   |      |
+ * |      |      |      |      |      |        |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+--------|                    |------+------+------+------+------+------|
- * |      |  (   |  )   |  -   |  =   | Lock   |                    | Paste|      |      |      |      |      |
+ * |      |      |      |      |      |        |                    |      |      |      |      |      |      |
  * |------------+------+------+------+--------+'                    `------+------+------+------+------+------|
- * |      |      |      |  `   |  |   |                                  |      |      |      |      |      |
- * `----------------------------------                                   `----------------------------------'
+ * |      |      |      |      |      |                                    |      |      |      |      |      |
+ * `----------------------------------'                                    `----------------------------------'
  *                                      ,-------------.  ,-------------.
- *                                      | break| alt  |  |      |      |
- *                               ,------|      |  +   |  |      |      |------.
- *                               |      |------| prscr|  |      |------|      |
- *                               |      |      |------|  |------|++++++|      |
- *                               |  Caps| LShft|      |  |      |++++++|      |
- *                               |  Lock|      | Prt  |  |      |++++++|      |
- *                               |      |      | Scr  |  |      |++++++|      |
+ *                                      |      |      |  |      |      |
+ *                               ,------|      |      |  |      |      |------.
+ *                               |      |------|      |  |      |------|      |
+ *                               |      |      |------|  |------|      |      |
+ *                               |      |      |      |  |      |      |      |
+ *                               |      |      |      |  |      |      |      |
+ *                               |      |      |      |  |      |      |      |
  *                               `--------------------'  `--------------------'
  */
-// SYMBOLS
-[SYMB] = LAYOUT_lightcycle(
-       // left hand
-          KC_TRNS,   KC_EXLM,  KC_AT,    KC_UP,  KC_DLR,  RALT(KC_F4),
-          KC_BSLS,   KC_ASTR,  KC_LEFT,  KC_DOWN, KC_RIGHT, KC_INS,
-          KC_TRNS,   KC_LPRN,  KC_RPRN,  KC_MINS,  KC_EQL,  RGUI(KC_L),
-          KC_TRNS,   KC_TRNS,  KC_TRNS,  KC_GRV,   KC_PIPE,
-                                                         KC_PAUSE, RALT(KC_PSCR),
-                                               KC_CAPS,  KC_LSFT,  KC_PSCR,
-       // right hand
-                RCTL(KC_X),  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                RCTL(KC_C),  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                RCTL(KC_V),  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-                             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-      KC_TRNS,  KC_TRNS,
-      KC_TRNS,  KC_TRNS,  KC_TRNS
-),
-
 // Admin Layer
 [ADMIN] = LAYOUT_lightcycle(
-       // left hand
-          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,
-                                                         KC_TRNS,    KC_TRNS,
-                                             KC_TRNS,    KC_TRNS,    KC_TRNS,
-       // right hand
-                KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   RESET,
-                KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,
-                KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,
-                           KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,
-      KC_TRNS,  KC_TRNS,
-      KC_TRNS,   KC_TRNS,   KC_TRNS
-),
+       // left hand                                                                                       // right hand
+          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,                                                    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   RESET,
+          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,                                                    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,
+          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,                                                    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,
+          KC_TRNS,    KC_TRNS,   KC_TRNS,    KC_TRNS,    KC_TRNS,                                                                           KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,
+                                                                                 KC_TRNS,    KC_TRNS,      KC_TRNS,   KC_TRNS,
+                                                                     KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,   KC_TRNS,   KC_TRNS
+    ),
 };
 
 //const uint16_t PROGMEM fn_actions[] = {
